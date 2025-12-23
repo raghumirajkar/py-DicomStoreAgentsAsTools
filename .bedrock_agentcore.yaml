@@ -1,0 +1,60 @@
+default_agent: dss_query_retrieve_agent
+agents:
+  dss_query_retrieve_agent:
+    name: dss_query_retrieve_agent
+    entrypoint: C:/Views/Learning/DicomStoreAgentsAsTools/main.py
+    deployment_type: container
+    runtime_type: null
+    platform: linux/arm64
+    container_runtime: docker
+    source_path: C:\Views\Learning\DicomStoreAgentsAsTools
+    aws:
+      execution_role: arn:aws:iam::519677643490:role/dss-query-retrieve-agent-execution-role
+      execution_role_auto_create: true
+      account: '519677643490'
+      region: us-east-1
+      ecr_repository: 519677643490.dkr.ecr.us-east-1.amazonaws.com/dss-agentcore/query-retrieve-agent
+      ecr_auto_create: false
+      s3_path: null
+      s3_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+      lifecycle_configuration:
+        idle_runtime_session_timeout: null
+        max_lifetime: null
+    bedrock_agentcore:
+      agent_id: dss_query_retrieve_agent-Lepn1X4vd0
+      agent_arn: arn:aws:bedrock-agentcore:us-east-1:519677643490:runtime/dss_query_retrieve_agent-Lepn1X4vd0
+      agent_session_id: null
+    codebuild:
+      project_name: null
+      execution_role: null
+      source_bucket: null
+    memory:
+      mode: NO_MEMORY
+      memory_id: null
+      memory_arn: null
+      memory_name: null
+      event_expiry_days: 30
+      first_invoke_memory_check_done: false
+      was_created_by_toolkit: false
+    identity:
+      credential_providers: []
+      workload: null
+    aws_jwt:
+      enabled: false
+      audiences: []
+      signing_algorithm: ES384
+      issuer_url: null
+      duration_seconds: 300
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
+    api_key_env_var_name: null
+    api_key_credential_provider_name: null
+    is_generated_by_agentcore_create: false
